@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">Travel Car</string>
+    <string name="logo_name">Get A Way</string>
+    <string name="slogan_name">Trips of your choice at the lowest prices!</string>
+    <string name="from_text">From: </string>
+    <string name="to_text">To: </string>
+    <string name="driver_text">Choose your perfect travel companion</string>
+    <string name="driver_choose">Pick me</string>
+    <string name="driver_confirmed">All drivers identities are confirmed, so your trip will be more than safe. Enjoy!</string>
+
+
+    <!-- Menu -->
+    <string name="home">Home</string>
+    <string name="logout">Logout</string>
+    <string name="profile">Profile</string>
+    <string name="share">Share</string>
+    <string name="rate_us">Rate us</string>
+
+    <!-- Drivers -->
+    <string name="driver1">Name</string>
+    <string name="desc1">To: City\nTime:</string>
+    <string name="lets_drive">Lets drive together!</string>
+    <string name="join">Join me</string>
+    <string name="join_successfully">Congratulations!\nYou have successfully selected a driver.\n\nLets ride together!</string>
+
+    <string name="sign_up">Sign Up</string>
+    <string name="retailer_heading">Lets take a ride</string>
+    <string name="retailer_tag_line">We will help you to pick the perfect driver</string>
+    <string name="login">Login</string>
+    <string name="enter_username">Enter Username</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="enter_city">City</string>
+    <string name="remember_me">Remember me</string>
+    <string name="forget_password">Forget password</string>
+    <string name="create_account">Create\naccount</string>
+    <string name="full_name">Full Name</string>
+    <string name="field_username">Username</string>
+    <string name="field_password">Password</string>
+    <string name="enter_email">Email</string>
+    <string name="enter_phone_number">Phone Number</string>
+    <string name="next_button">Next</string>
+    <string name="otp_code_text">Co\nde</string>
+    <string name="otp_verification_text">Verification</string>
+    <string name="otp_description_text">Enter one time code that was sent to your number</string>
+    <string name="todo">Cancel</string>
+    <string name="verify_code">Verify code</string>
+    <string name="pin_view_content_description">Verify</string>
+</resources>

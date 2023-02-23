@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "206417177625",
+    "project_id": "travel-car-c62fe",
+    "storage_bucket": "travel-car-c62fe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:206417177625:android:ef6a49b2c7fc1006cc4e88",
+        "android_client_info": {
+          "package_name": "com.example.travelcar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "206417177625-q1fmi82joqs7tbb30upkhp310am8b535.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBt9jOaOQykloJ0qaze__l9-5082Fr9SCI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "206417177625-q1fmi82joqs7tbb30upkhp310am8b535.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

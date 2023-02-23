@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+<group android:checkableBehavior="single">
+    <item
+        android:id="@+id/navigation_home"
+        android:title="@string/home"
+        android:icon="@drawable/drawable_menu"/>
+</group>
+
+<item android:title="Profile">
+    <menu>
+
+        <group android:checkableBehavior="single">
+            <item
+                android:id="@+id/navigation_login"
+                android:title="@string/login"
+                android:icon="@drawable/drawable_login"
+                android:onClick="callDashScreen"/>
+            <item
+                android:id="@+id/navigation_profile"
+                android:title="@string/profile"
+                android:icon="@drawable/drawable_user_icon"/>
+            <item
+                android:id="@+id/navigation_logout"
+                android:title="@string/logout"
+                android:icon="@drawable/drawable_logout_icon"/>
+        </group>
+
+    </menu>
+</item>
+
+
+<item android:title="Share">
+    <menu>
+
+        <group android:checkableBehavior="none">
+            <item
+                android:id="@+id/nav_share"
+                android:title="@string/share"
+                android:icon="@drawable/drawable_share_icon"/>
+            <item
+                android:id="@+id/nav_rate_us"
+                android:title="@string/rate_us"
+                android:icon="@drawable/drawable_rate_icon"/>
+        </group>
+
+    </menu>
+</item>
+
+</menu>
