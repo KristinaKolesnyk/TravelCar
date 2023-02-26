@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.chaos.view.PinView;
+import com.example.travelcar.Databases.SessionManager;
 import com.example.travelcar.Databases.UserHelperClass;
 import com.example.travelcar.R;
 import com.example.travelcar.User.UserDashboard;
@@ -32,7 +33,6 @@ import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-
 import java.util.concurrent.TimeUnit;
 
 public class VerifyOTP extends AppCompatActivity {
@@ -41,8 +41,7 @@ public class VerifyOTP extends AppCompatActivity {
     private PinView pinFromUser;
     private String codeBySystem;
     private TextView otpDescriptionText;
-    private String fullName, username, email, phoneNo, date, password, gender, city, whatToDO;
-
+    private String fullName, username, email, phoneNo, date, password, gender, city;
     private FirebaseAuth mAuth;
 
     @Override
@@ -67,8 +66,8 @@ public class VerifyOTP extends AppCompatActivity {
         password = getIntent().getStringExtra("password");
         gender = getIntent().getStringExtra("gender");
         city = getIntent().getStringExtra("city");
-        whatToDO = getIntent().getStringExtra("whatToDO");
         otpDescriptionText.setText("Enter One Time Password Sent On " + phoneNo);
+
         sendVerificationCodeToUser(phoneNo);
     }
 
@@ -108,9 +107,7 @@ public class VerifyOTP extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        //updateUI(currentUser);
     }
 
     private void verifyCode(String code) {
@@ -134,11 +131,35 @@ public class VerifyOTP extends AppCompatActivity {
         });
     }
 
+    public void callSignUp3FromVer(View view) {
+        Intent intent = new Intent(VerifyOTP.this, SignUp3rdClass.class);
+        Pair[] pairs = new Pair[1];
+        pairs[0] = new Pair<View, String>(cancel, "transition_signUp3d_screen");
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(VerifyOTP.this, pairs);
+            startActivity(intent, options.toBundle());
+        } else startActivity(intent);
+    }
+
     public void callDashboardScreen(View view) {
         String code = pinFromUser.getText().toString();
         if (!code.isEmpty()) {
             verifyCode(code);
         }
+        Intent infa = new Intent(getApplicationContext(), Login.class);
+        infa.putExtra("name", fullName);
+        infa.putExtra("email", email);
+        infa.putExtra("username", username);
+        infa.putExtra("date", date);
+        infa.putExtra("gender", gender);
+        infa.putExtra("phoneNo", phoneNo);//phone: +1 650-555-3434 code: 654321
+        infa.putExtra("password", password);
+        infa.putExtra("city", city);
+
+        SessionManager sessionManager = new SessionManager(VerifyOTP.this);
+        sessionManager.createLoginSession(fullName, username, email, phoneNo, date, password, gender, city);
+
         Intent intent = new Intent(VerifyOTP.this, UserDashboard.class);
         Pair[] pairs = new Pair[1];
         pairs[0] = new Pair<View, String>(verifyBTN, "transition_dash_screen");
@@ -148,17 +169,6 @@ public class VerifyOTP extends AppCompatActivity {
             startActivity(intent, options.toBundle());
         } else startActivity(intent);
     }
-
-    /*public void callSignUp3FromVer(View view) {
-        Intent intent = new Intent(VerifyOTP.this, SignUp3rdClass.class);
-        Pair[] pairs = new Pair[1];
-        pairs[0] = new Pair<View, String>(cancel, "transition_signUp3d_screen");
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(VerifyOTP.this, pairs);
-            startActivity(intent, options.toBundle());
-        } else startActivity(intent);
-    }*/
 
     private void storeNewUsersData() {
         FirebaseDatabase rootNode = FirebaseDatabase.getInstance();

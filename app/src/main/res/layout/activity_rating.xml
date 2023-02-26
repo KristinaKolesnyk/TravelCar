@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="30dp"
+    tools:context=".User.Rating">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:orientation="vertical">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginBottom="40dp"
+            android:src="@drawable/drawable_circle" />
+
+        <TextView
+            android:id="@+id/rating_feedback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/select_us"/>
+        <RatingBar
+            android:id="@+id/profile_rating"
+            style="@style/Widget.AppCompat.RatingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:progressBackgroundTint="@color/banner_background"
+            android:progressTint="@color/color_primary"
+            android:theme="@style/MyRatingBar" />
+
+        <Button
+            android:id="@+id/rating_button"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="40dp"
+            android:onClick="callDashFromRate"
+            android:backgroundTint="@color/color_primary"
+            android:text="@string/rate_us"
+            android:textColor="@color/black"
+            android:transitionName="transition_feedback" />
+    </LinearLayout>
+
+</ScrollView>

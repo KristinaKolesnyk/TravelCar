@@ -1,13 +1,9 @@
 package com.example.travelcar.HelperClasses;
 
-import android.app.ActivityOptions;
-import android.content.Intent;
-import android.os.Build;
-import android.util.Pair;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -16,8 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.travelcar.R;
-import com.example.travelcar.User.JoinScreen;
-import com.example.travelcar.User.UserDashboard;
+
 
 import java.util.ArrayList;
 
@@ -27,7 +22,7 @@ public class FeaturedAdapter extends RecyclerView.Adapter<FeaturedAdapter.Featur
     public static class FeaturedViewHolder extends RecyclerView.ViewHolder {
         public ImageView image;
         public TextView name, desc;
-        LinearLayout linearLayout;
+        private LinearLayout linearLayout;
 
         public FeaturedViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -64,6 +59,4 @@ public class FeaturedAdapter extends RecyclerView.Adapter<FeaturedAdapter.Featur
     public int getItemCount() {
         return featuredLocations.size();
     }
-
-
 }

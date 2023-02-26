@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/banner_background"
+    android:background="@color/white"
     android:padding="30dp"
     tools:context=".Common.LoginSignup.SignUp2ndClass">
 
@@ -14,11 +14,11 @@
         android:orientation="vertical">
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/signup_back_button"
+            android:id="@+id/profile_back_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="5dp"
             android:onClick="callSignUp1From2nd"
+            android:padding="5dp"
             android:src="@drawable/drawable_back_button"
             android:transitionName="transition_back_btn" />
 
@@ -92,10 +92,10 @@
                 android:id="@+id/age_picker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:calendarViewShown="false"
                 android:datePickerMode="spinner"
-                android:spinnersShown="true"
-                android:layout_gravity="center"/>
+                android:spinnersShown="true" />
 
         </LinearLayout>
 
@@ -104,11 +104,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:background="@color/black"
+            android:background="@color/color_primary"
             android:elevation="5dp"
             android:onClick="call3dSignupScreen"
             android:text="@string/next_button"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:transitionName="transition_next_btn" />
 
         <Button
@@ -116,15 +116,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:onClick="callLoginFrom2nd"
             android:background="#00000000"
             android:elevation="5dp"
-            android:fontFamily="@font/muli"
+            android:fontFamily="@font/muli_black"
+            android:onClick="callLoginFrom2nd"
             android:text="@string/login"
             android:textColor="@color/black"
             android:transitionName="transition_login_BTN" />
-
-
     </LinearLayout>
 
 </ScrollView>

@@ -12,17 +12,17 @@ import android.widget.TextView;
 
 import com.example.travelcar.Common.LoginSignup.StartUpScreen;
 import com.example.travelcar.R;
-import com.example.travelcar.User.UserDashboard;
 import com.google.android.material.imageview.ShapeableImageView;
+
+import java.util.Stack;
 
 public class SplashScreen extends AppCompatActivity {
     private static int SPLASH_TIMER = 4000; //4sec
     //Variables
     private ShapeableImageView backgroundImage;
     private TextView travelCar;
-//Animations
+    //Animations
     private Animation topAnim, bottomAnim;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

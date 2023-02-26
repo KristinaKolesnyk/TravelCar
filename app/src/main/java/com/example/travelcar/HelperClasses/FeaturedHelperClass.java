@@ -13,9 +13,11 @@ public class FeaturedHelperClass {
     public int getImage() {
         return image;
     }
+
     public String getTitle() {
         return title;
     }
+
     public String getDescription() {
         return description;
     }

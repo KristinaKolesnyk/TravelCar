@@ -5,6 +5,7 @@ public class UserHelperClass {
 
     public UserHelperClass() {
     }
+
     public UserHelperClass(String name, String username, String email, String phoneNo, String date, String password, String gender, String city) {
         this.name = name;
         this.username = username;

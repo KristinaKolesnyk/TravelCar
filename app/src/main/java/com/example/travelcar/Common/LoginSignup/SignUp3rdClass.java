@@ -15,8 +15,6 @@ import android.widget.ScrollView;
 import com.example.travelcar.R;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
-import com.hbb20.CountryCodePicker;
 
 
 public class SignUp3rdClass extends AppCompatActivity {
@@ -24,7 +22,7 @@ public class SignUp3rdClass extends AppCompatActivity {
     private Button login;
     private ShapeableImageView back;
     private TextInputEditText phoneNumber;
-    //CountryCodePicker countryCodePicker;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,14 +33,10 @@ public class SignUp3rdClass extends AppCompatActivity {
         scrollView = findViewById(R.id.signup_3rd_screen);
         phoneNumber = findViewById(R.id.signup_phone_number_edit_text);
         login = findViewById(R.id.signup_login_button);
-        back = findViewById(R.id.signup_back_button);
-
-        //countryCodePicker = findViewById(R.id.country_code);
+        back = findViewById(R.id.profile_back_button);
     }
 
     public void callVerifyOTPScreen(View view) {
-
-
         String _fullName = getIntent().getStringExtra("name");
         String _email = getIntent().getStringExtra("email");
         String _username = getIntent().getStringExtra("username");
@@ -60,10 +54,10 @@ public class SignUp3rdClass extends AppCompatActivity {
         intent.putExtra("password", _password);
         intent.putExtra("date", _date);
         intent.putExtra("gender", _gender);
-        intent.putExtra("phoneNo", _phoneNo);
+        intent.putExtra("phoneNo", _phoneNo);//phone: +1 650-555-3434 code: 654321
         intent.putExtra("city", _city);
 
-        //Add Transition
+        //Transition
         Pair[] pairs = new Pair[1];
         pairs[0] = new Pair<View, String>(scrollView, "transition_OTP_screen");
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
@@ -73,6 +67,7 @@ public class SignUp3rdClass extends AppCompatActivity {
             startActivity(intent);
         }
     }
+
     public void callLoginFrom3d(View view) {
         Intent intent = new Intent(getApplicationContext(), Login.class);
         Pair[] pairs = new Pair[1];
@@ -83,6 +78,7 @@ public class SignUp3rdClass extends AppCompatActivity {
             startActivity(intent, options.toBundle());
         } else startActivity(intent);
     }
+
     public void callSignUp2From3(View view) {
         Intent intent = new Intent(getApplicationContext(), SignUp2ndClass.class);
         Pair[] pairs = new Pair[1];

@@ -12,6 +12,12 @@
         android:theme="@style/Theme.TravelCar"
         tools:targetApi="31">
         <activity
+            android:name=".User.Rating"
+            android:exported="false" />
+        <activity
+            android:name=".User.Profile"
+            android:exported="false" />
+        <activity
             android:name=".User.JoinScreen"
             android:exported="false" />
         <activity

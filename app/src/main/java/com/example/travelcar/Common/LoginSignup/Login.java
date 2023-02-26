@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActivityOptions;
-import android.app.DownloadManager;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -14,6 +13,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.travelcar.Databases.SessionManager;
 import com.example.travelcar.R;
 import com.example.travelcar.User.UserDashboard;
 import com.google.android.material.textfield.TextInputEditText;
@@ -25,7 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Login extends AppCompatActivity {
     private TextInputEditText phoneNumber, password;
-    Button logBTN, createBTN;
+    private Button logBTN, createBTN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +45,8 @@ public class Login extends AppCompatActivity {
             return;
         }
         Intent intent = new Intent(Login.this, UserDashboard.class);
-        String getPhone = phoneNumber.getText().toString().trim();
-        String getPassword = password.getText().toString().trim();
+        String getPhone = phoneNumber.getText().toString();
+        String getPassword = password.getText().toString();
 
         Query checkUser = FirebaseDatabase.getInstance().getReference("Users").orderByChild("phoneNo").equalTo(getPhone);
         checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -61,20 +61,29 @@ public class Login extends AppCompatActivity {
                         password.setError((null));
                         password.setEnabled(false);
 
-                        String _fullname = snapshot.child(getPhone).child("fullName").getValue(String.class);
+                        String _fullname = snapshot.child(getPhone).child("name").getValue(String.class);
                         String _username = snapshot.child(getPhone).child("username").getValue(String.class);
+                        String _email = snapshot.child(getPhone).child("email").getValue(String.class);
+                        String _phoneNo = snapshot.child(getPhone).child("phoneNo").getValue(String.class);
                         String _city = snapshot.child(getPhone).child("city").getValue(String.class);
                         String _date = snapshot.child(getPhone).child("date").getValue(String.class);
-                        String _email = snapshot.child(getPhone).child("email").getValue(String.class);
+                        String _password = snapshot.child(getPhone).child("password").getValue(String.class);
                         String _gender = snapshot.child(getPhone).child("gender").getValue(String.class);
 
-                        Toast.makeText(Login.this, _fullname + "\n" + _email + "\n" + _username + "\n" + _city + "\n" + _date + "\n" + _gender, Toast.LENGTH_SHORT);
+                        SessionManager sessionManager = new SessionManager(Login.this);
+                        sessionManager.createLoginSession(_fullname, _username, _email, _phoneNo, _date, _password, _gender, _city);
+                        Pair[] pairs = new Pair[1];
+                        pairs[0] = new Pair<View, String>(logBTN, "transition_dash_screen");
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(Login.this, pairs);
+                            startActivity(intent, options.toBundle());
+                        } else startActivity(intent);
 
                     } else {
-                        Toast.makeText(Login.this, "Password does not match", Toast.LENGTH_SHORT);
+                        Toast.makeText(Login.this, "Password does not match", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(Login.this, "User does not exist", Toast.LENGTH_SHORT);
+                    Toast.makeText(Login.this, "User does not exist", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -84,13 +93,6 @@ public class Login extends AppCompatActivity {
 
             }
         });
-
-        Pair[] pairs = new Pair[1];
-        pairs[0] = new Pair<View, String>(logBTN, "transition_dash_screen");
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(Login.this, pairs);
-            startActivity(intent, options.toBundle());
-        } else startActivity(intent);
     }
 
     private boolean validateFields() {
@@ -119,5 +121,4 @@ public class Login extends AppCompatActivity {
             startActivity(intent, options.toBundle());
         } else startActivity(intent);
     }
-
 }

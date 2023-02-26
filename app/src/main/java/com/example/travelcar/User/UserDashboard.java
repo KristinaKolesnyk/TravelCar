@@ -13,7 +13,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
+import com.example.travelcar.Common.LoginSignup.Login;
 import com.example.travelcar.Common.LoginSignup.StartUpScreen;
 import com.example.travelcar.HelperClasses.FeaturedAdapter;
 import com.example.travelcar.HelperClasses.FeaturedHelperClass;
@@ -35,7 +37,6 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     private NavigationView navigationView;
     private ShapeableImageView menuIcon;
     private LinearLayout contentPanel;
-    private MenuItem home;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,14 +77,11 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
-
-                // Scale the View based on current slide offset
                 final float diffScaledOffset = slideOffset * (1 - END_SCALE);
                 final float offsetScale = 1 - diffScaledOffset;
                 contentPanel.setScaleX(offsetScale);
                 contentPanel.setScaleY(offsetScale);
 
-                // Translate the View, accounting for the scaled width
                 final float xOffset = drawerView.getWidth() * slideOffset;
                 final float xOffsetDiff = contentPanel.getWidth() * diffScaledOffset / 2;
                 final float xTranslation = xOffset - xOffsetDiff;
@@ -91,17 +89,41 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
             }
         });
     }
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.navigation_home:
+                break;
+            case R.id.navigation_logout:
+                Intent intentLogout = new Intent(UserDashboard.this, Login.class);
+                startActivity(intentLogout);
+                break;
+            case R.id.navigation_profile:
+                Intent intentProfile = new Intent(UserDashboard.this, Profile.class);
+                startActivity(intentProfile);
+                break;
+            case R.id.nav_share:
+                Toast.makeText(this, "Shared", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.nav_rate_us:
+                Intent intentRating = new Intent(UserDashboard.this, Rating.class);
+                startActivity(intentRating);
+                break;
+        }
+
+        drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
+
     @Override
     public void onBackPressed() {
-        if(drawerLayout.isDrawerVisible(GravityCompat.START))
+        if (drawerLayout.isDrawerVisible(GravityCompat.START))
             drawerLayout.closeDrawer(GravityCompat.START);
         else
             super.onBackPressed();
     }
+
     private void featuredRecycler() {
         featuredRecycler.setHasFixedSize(true);
         featuredRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
@@ -119,12 +141,12 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         adapter = new FeaturedAdapter(featuredLocations);
         featuredRecycler.setAdapter(adapter);
     }
+
     public void callStartUpScreen(View view) {
         startActivity(new Intent(getApplicationContext(), StartUpScreen.class));
     }
+
     public void callJoinScreen(View view) {
         startActivity(new Intent(getApplicationContext(), JoinScreen.class));
     }
-
-
 }

@@ -28,6 +28,7 @@ public class SignUp2ndClass extends AppCompatActivity {
     private RadioGroup radioGroup;
     private RadioButton selectGender;
     private DatePicker agePicker;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +36,7 @@ public class SignUp2ndClass extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         //Hooks
-        backBTN = findViewById(R.id.signup_back_button);
+        backBTN = findViewById(R.id.profile_back_button);
         next = findViewById(R.id.signup_next_button);
         login = findViewById(R.id.signup_login_button);
         titleText = findViewById(R.id.signup_title);
@@ -62,6 +63,7 @@ public class SignUp2ndClass extends AppCompatActivity {
         } else
             return true;
     }
+
     public void call3dSignupScreen(View view) {
         if (!validateAge() | !validateGender()) {
             return;
@@ -73,10 +75,10 @@ public class SignUp2ndClass extends AppCompatActivity {
         int month = agePicker.getMonth();
         int year = agePicker.getYear();
 
-        String _date = day+"/"+month+"/"+year;
+        String _date = day + "/" + month + "/" + year;
 
         String name = getIntent().getStringExtra("name");
-        String user = getIntent().getStringExtra("user");
+        String user = getIntent().getStringExtra("username");
         String email = getIntent().getStringExtra("email");
         String password = getIntent().getStringExtra("password");
         String city = getIntent().getStringExtra("city");
@@ -110,6 +112,7 @@ public class SignUp2ndClass extends AppCompatActivity {
             startActivity(intent, options.toBundle());
         } else startActivity(intent);
     }
+
     public void callSignUp1From2nd(View view) {
         Intent intent = new Intent(getApplicationContext(), SignUp1tClass.class);
         Pair[] pairs = new Pair[1];

@@ -5,10 +5,10 @@
     android:id="@+id/signup_3rd_screen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/banner_background"
+    android:background="@color/white"
     android:padding="30dp"
-    tools:context=".Common.LoginSignup.SignUp3rdClass"
-    android:transitionName="transition_OTP_screen">
+    android:transitionName="transition_OTP_screen"
+    tools:context=".Common.LoginSignup.SignUp3rdClass">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,11 +16,11 @@
         android:orientation="vertical">
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/signup_back_button"
+            android:id="@+id/profile_back_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="5dp"
             android:onClick="callSignUp2From3"
+            android:padding="5dp"
             android:src="@drawable/drawable_back_button"
             android:transitionName="transition_back_btn" />
 
@@ -36,50 +36,48 @@
             android:textSize="40sp"
             android:transitionName="transition_title_text" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:orientation="vertical">
-
-
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_marginTop="80dp"
-            android:id="@+id/country_code"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/enter_phone_number"
-            android:textColorHint="@color/black"
-            app:boxStrokeColor="@color/black"
-            app:boxStrokeWidthFocused="2dp"
-            app:endIconMode="clear_text"
-            app:endIconTint="@color/black"
-            app:hintTextColor="@color/black"
-            app:startIconDrawable="@drawable/drawable_phone"
-            app:startIconTint="@color/black">
+            android:layout_marginTop="60dp"
+            android:orientation="vertical">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/signup_phone_number_edit_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="phone"
-            android:textColor="@color/black" />
-        </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/country_code"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
+                android:hint="@string/enter_phone_number"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/black"
+                app:boxStrokeWidthFocused="2dp"
+                app:endIconMode="clear_text"
+                app:endIconTint="@color/black"
+                app:hintTextColor="@color/black"
+                app:startIconDrawable="@drawable/drawable_phone"
+                app:startIconTint="@color/black">
 
-    </LinearLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/signup_phone_number_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:textColor="@color/black" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/signup_next_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@color/black"
+            android:layout_marginTop="70dp"
+            android:background="@color/color_primary"
             android:elevation="5dp"
             android:onClick="callVerifyOTPScreen"
             android:text="@string/next_button"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:transitionName="transition_next_btn" />
 
         <Button
@@ -89,12 +87,11 @@
             android:layout_marginTop="20dp"
             android:background="#00000000"
             android:elevation="5dp"
+            android:fontFamily="@font/muli_black"
             android:onClick="callLoginFrom3d"
-            android:fontFamily="@font/muli"
             android:text="@string/login"
             android:textColor="@color/black"
             android:transitionName="transition_to_login" />
-
     </LinearLayout>
 
 </ScrollView>

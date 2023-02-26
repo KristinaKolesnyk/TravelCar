@@ -17,10 +17,6 @@ import android.widget.TextView;
 import com.example.travelcar.R;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUp1tClass extends AppCompatActivity {
     private TextInputEditText createName, createUsername, createEmail, createPassword;
@@ -29,7 +25,6 @@ public class SignUp1tClass extends AppCompatActivity {
     private Button next, login;
     private TextView titleText;
     private AutoCompleteTextView citiesAutocomplete;
-    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +33,7 @@ public class SignUp1tClass extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         //Hooks
-        backBTN = findViewById(R.id.signup_back_button);
+        backBTN = findViewById(R.id.profile_back_button);
         next = findViewById(R.id.signup_next_button);
         login = findViewById(R.id.signup_login_button);
         titleText = findViewById(R.id.signup_title);
@@ -156,6 +151,7 @@ public class SignUp1tClass extends AppCompatActivity {
             startActivity(intent, options.toBundle());
         } else startActivity(intent);
     }
+
     public void callStartUp1t(View view) {
         Intent intent = new Intent(getApplicationContext(), StartUpScreen.class);
         Pair[] pairs = new Pair[1];
@@ -166,6 +162,4 @@ public class SignUp1tClass extends AppCompatActivity {
             startActivity(intent, options.toBundle());
         } else startActivity(intent);
     }
-
-
 }

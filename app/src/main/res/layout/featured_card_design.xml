@@ -20,7 +20,7 @@
         <ImageView
             android:id="@+id/featured_driver1"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="220dp"
             android:scaleType="centerCrop"
             android:src="@drawable/drawable_driver1" />
 
@@ -48,15 +48,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            android:fontFamily="@font/baloo"
             android:text="@string/desc1"
             android:textSize="20sp" />
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_gravity="end"
-            android:src="@drawable/drawable_information" />
-
     </LinearLayout>
-
 </androidx.cardview.widget.CardView>

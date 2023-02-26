@@ -15,7 +15,7 @@ import com.example.travelcar.R;
 import com.google.android.material.imageview.ShapeableImageView;
 
 public class JoinScreen extends AppCompatActivity {
-    private static int SPLASH_TIMER = 6000; //6sec
+    private static int SPLASH_TIMER = 4000; //6sec
     private ShapeableImageView successImage;
     private Animation topAnim;
 
