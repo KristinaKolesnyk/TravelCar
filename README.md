@@ -5,11 +5,16 @@ This is a carpool app for Android platform by Kristina Kolesnyk using Java, that
 # Features:
 The app includes the following features:
 	•	Firebase RealTime DB to store all the data.
+	
 	•	Authentication and Registration with Firebase using phone number.
+	
 	•	Complete Form Validation.
-	•	Navigation Drawer MenuCancel changes
-	•	Validation Registration and Login Form 
-	•	Recyclerview with Cardview for drivers
+	
+	•	Navigation Drawer MenuCancel changes.
+	
+	•	Validation Registration and Login Form.
+	
+	•	Recyclerview with Cardview for drivers.
 	
 # Images of app:
 
